@@ -14,30 +14,16 @@
     </div><!--end of header .row-->
     <div class="row">
       <div class="col-md-8">
-        <div class="post">
-          <h3>Post Heading</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis doloribus iusto fugiat fuga reprehenderit qui, eum odio laborum ipsa, aspernatur vel quis nisi, id magni ut reiciendis blanditiis sapiente ea.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-          </div><!--end of post-->
-          <hr>
-            <div class="post">
-          <h3>Post Heading</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis doloribus iusto fugiat fuga reprehenderit qui, eum odio laborum ipsa, aspernatur vel quis nisi, id magni ut reiciendis blanditiis sapiente ea.</p>
-          <a href="#" class="btn btn-primary">Read More</a>
-          </div><!--end of post-->
-          <hr>
-            <div class="post">
-          <h3>Post Heading</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis doloribus iusto fugiat fuga reprehenderit qui, eum odio laborum ipsa, aspernatur vel quis nisi, id magni ut reiciendis blanditiis sapiente ea.</p>
-           <a href="#" class="btn btn-primary">Read More</a>
-          </div><!--end of post-->
-          <hr>
-            <div class="post">
-          <h3>Post Heading</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis doloribus iusto fugiat fuga reprehenderit qui, eum odio laborum ipsa, aspernatur vel quis nisi, id magni ut reiciendis blanditiis sapiente ea.</p>
-           <a href="#" class="btn btn-primary">Read More</a>
-          </div><!--end of post-->
-          <hr>
+      @foreach( $posts as $post)
+
+          <div class="post">
+            <h3>{{ $post->title }}</h3>
+            <p>{{substr($post->body,0,300)}}{{ strlen($post->body) > 300 ? "...":"" }}</p>
+            <a href="#" class="btn btn-primary">Read More</a>
+            </div><!--end of post-->
+            <hr>
+
+        @endforeach
       </div>
       <div class="col-md-3 col-md-offset-1"><h2>Side Bar</h2></div><!--end of col-md-3-->
     </div>

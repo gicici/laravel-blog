@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('blog', ['uses'=>'BlogController@getIndex', 'as'=> 'blog.index']);
 Route::get('carosel','PagesController@getCarosel');
 Route::get('contact','PagesController@getContact');
 
