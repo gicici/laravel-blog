@@ -19,17 +19,25 @@
 // Route::get('auth/register', 'Auth\AuthController@getRegister');
 // Route::post('auth/register', 'Auth\AuthController@getRegister');
 
+// Blog routes
 Route::get('blog/{slug}', ['as'=>'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
 Route::get('blog', ['uses'=>'BlogController@getIndex', 'as'=>'blog.index']);
 
-
+//Pages Routes
 Route::get('contact','PagesController@getContact');
 Route::get('about', 'PagesController@getAbout');
 Route::get('/', 'PagesController@getIndex');
 
-
+//Post Routes
 Route:: resource('posts', 'PostController');
 
+//Category Routes
+Route::resource('categories', 'CategoryController', ['except'=>['create']]);
+
+//Tags Routes
+Route::resource('tags', 'TagController', ['except'=>['create']]);
+
+//Registration and Login Routes
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
