@@ -37,7 +37,8 @@ Route::resource('categories', 'CategoryController', ['except'=>['create']]);
 
 //Tags Routes
 Route::resource('tags', 'TagController', ['except'=>['create']]);
-
+//Comment Routes
+Route::post('comments/{post_id}',['uses' =>'CommentsController@store', 'as'=>'comments.store']);
 //Registration and Login Routes
 Auth::routes();
 
