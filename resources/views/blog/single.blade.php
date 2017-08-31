@@ -14,10 +14,21 @@
   </div>
   <div class="row">
   	<div class="col-md-8 col-md-offset-2">
+    <h3 class="comments-title"> <i class="fa fa-comment-o" aria-hidden="true"></i> {{$post->comments()->count()  }} Comments</h3>
   		@foreach($post->comments as $comment)
 			<div class="comment">
-				<p><strong>Name:</strong>{{ $comment->name }}</p>
-				<p><strong>Comment:<br/></strong> {{ $comment->comment }}</p><br> <br> <br>
+				<div class="author-info">
+        <img src={{ "https://www.gravatar.com/avatar/" . md5(strtolower(trim($comment->email))) . "?s=50&d=mm"}} class="author-image">
+        <div class="author-name">
+          <h4>{{ $comment->name }}</h4>
+          <div class="author-time">
+            <p>{{ date('F nS, Y -g:ia',strtotime($comment->created_at))}}</p>
+          </div>
+        </div>
+        
+        </div>
+				<div class="comment-content">{{ $comment->comment }}
+        </div>
 			</div>
   		@endforeach
   	</div>
