@@ -76,7 +76,8 @@ class CommentsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $comment = Comment::find($id);
+        return view('comments.edit')->withComment($comment);
     }
 
     /**
